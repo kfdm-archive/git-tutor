@@ -11,7 +11,7 @@ logger = logging.getLogger(__name__)
 
 
 class GitRepo(object):
-    def __init__(self, path):
+    def __init__(self, path, **kwargs):
         self.path = os.path.expanduser(path)
 
     def _run(self, *args, **kwargs):
@@ -20,7 +20,7 @@ class GitRepo(object):
         if kwargs.get('show', False):
             print '$ git ' + ' '.join(list(args))
 
-        cmd = ['/usr/bin/git'] + list(args)
+        cmd = ['/usr/bin/git'] + [str(x) for x in args]
         env = os.environ
 
         logger.info(' '.join(cmd))
@@ -67,3 +67,20 @@ class GitRepo(object):
 
     def clone(self, remote, show=None):
         self._run('clone', remote, self.path, show=show)
+
+    def graph(self, count=5, show=None):
+        r, o, e = self._run('log', '-n', count, '--oneline', '--graph')
+        print o
+
+    def nuke(self):
+        """Completely nuke our repository"""
+        pass
+
+    def push(self):
+        pass
+
+    def pull(self):
+        pass
+
+    def merge(self):
+        pass
