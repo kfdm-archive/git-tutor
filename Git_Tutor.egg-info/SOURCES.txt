@@ -1,0 +1,8 @@
+setup.py
+Git_Tutor.egg-info/PKG-INFO
+Git_Tutor.egg-info/SOURCES.txt
+Git_Tutor.egg-info/dependency_links.txt
+Git_Tutor.egg-info/entry_points.txt
+Git_Tutor.egg-info/top_level.txt
+tutor/__init__.py
+tutor/cli.py

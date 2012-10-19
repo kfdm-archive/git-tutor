@@ -1,0 +1,3 @@
+[console_scripts]
+git-tutor = tutor.cli:main
+
